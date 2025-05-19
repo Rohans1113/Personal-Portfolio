@@ -658,7 +658,7 @@ console.log('Form submitted');<!DOCTYPE html>
         </div>
     </footer>
 
-    <script>
+    <!-- <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -676,6 +676,24 @@ console.log('Form submitted');<!DOCTYPE html>
             alert('Thank you for your message! In a real implementation, this would send an email.');
             this.reset();
         });
-    </script>
+    </script> -->
+
+    <script>
+    // Log when navigation links are clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            console.log('Navigation link clicked');
+        });
+    });
+
+    // Log when contact form is submitted
+    const contactForm = document.querySelector('form'); // Adjust selector if needed
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            console.log('Form submitted');
+        });
+    }
+</script>
+
 </body>
 </html>
