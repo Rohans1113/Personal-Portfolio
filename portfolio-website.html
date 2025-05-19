@@ -1,0 +1,680 @@
+console.log('Navigation link clicked');
+console.log('Form submitted');<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #3a86ff;
+            --dark-color: #1a1a2e;
+            --light-color: #f5f5f5;
+            --accent-color: #ff006e;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-color);
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* About section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        /* Services section */
+        .services {
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Portfolio section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact section */
+        .contact {
+            background-color: #f9f9f9;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .about-img, .about-text, .contact-info, .contact-form {
+                flex: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">My<span>Portfolio</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span style="color: var(--primary-color);">Rohan Sachin</span></h1>
+                <p>A passionate web developer creating amazing digital experiences</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Web Developer & Designer</h3>
+                    <p>Hello! I'm a passionate web developer with expertise in creating responsive and user-friendly websites. I love turning complex problems into simple, beautiful and intuitive designs.</p>
+                    <p>With over X years of experience in the industry, I've worked on a variety of projects ranging from small business websites to complex web applications.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">CSS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Data Structures and Algorithms</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">C++</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">ReactJS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">AngularJS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">NodeJS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>I create responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development, HTML, CSS, JS, and building small and medium web apps.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Your site will look good on any device. I create responsive designs that adapt to any screen size, ensuring your website looks great on desktop, tablet, and mobile devices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Good design makes the user experience better. I create clean, attractive designs focused on usability and aligned with the goals of your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project Example" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Website</h3>
+                        <p>Full-Stack Development</p>
+                        <a href="https://github.com/yourusername/project-repo" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project Name</h3>
+                        <p>Web Design</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project Name</h3>
+                        <p>UI/UX Design</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project Name</h3>
+                        <p>Mobile App</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project 5" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project Name</h3>
+                        <p>E-commerce</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/600/400" alt="Project 6" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project Name</h3>
+                        <p>Branding</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's talk about your project</h3>
+                    <p>Feel free to reach out if you want to collaborate with me, or simply have a chat.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rohansachin@icloud.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91-9619158895</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Mumbai, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission (you would need a backend service to actually send emails)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! In a real implementation, this would send an email.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
