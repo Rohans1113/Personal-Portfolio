@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohan Sachin | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* --- VARIABLES & RESET --- */
         :root {
@@ -155,7 +156,7 @@
             align-items: center;
             position: relative;
             background: radial-gradient(circle at 10% 20%, rgba(58, 134, 255, 0.1) 0%, transparent 20%),
-                        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 20%);
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 20%);
         }
 
         .hero-content {
@@ -178,7 +179,8 @@
             font-size: 1.5rem;
             color: var(--text-muted);
             margin-bottom: 40px;
-            height: 30px; /* Prevent layout shift */
+            height: 30px;
+            /* Prevent layout shift */
         }
 
         /* --- ABOUT --- */
@@ -278,7 +280,7 @@
             overflow: hidden;
             position: relative;
             height: 300px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             group: 'portfolio';
         }
 
@@ -389,7 +391,7 @@
             display: inline-flex;
             width: 45px;
             height: 45px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             align-items: center;
             justify-content: center;
@@ -406,8 +408,10 @@
 
         /* --- RESPONSIVE --- */
         @media screen and (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -422,12 +426,22 @@
                 border-top: var(--glass-border);
             }
 
-            .nav-links.active { right: 0; }
-            .hamburger { display: block; }
-            .about-content, .contact-content { flex-direction: column; }
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -442,7 +456,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="resume_2 (1).pdf" class="btn" style="padding: 8px 20px; margin-left: 10px;">Resume</a></li>
+                    <li><a href="resume_2 (1).pdf" class="btn" style="padding: 8px 20px; margin-left: 10px;">Resume</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -457,7 +472,9 @@
                     Crafting intelligent digital experiences with a focus on Web Development, AI, and Cybersecurity.
                 </p>
                 <a href="#portfolio" class="btn">View My Work</a>
-                <a href="#contact" class="btn" style="background: transparent; border: 1px solid var(--primary-color); margin-left: 10px;">Contact Me</a>
+                <a href="#contact" class="btn"
+                    style="background: transparent; border: 1px solid var(--primary-color); margin-left: 10px;">Contact
+                    Me</a>
             </div>
         </div>
     </section>
@@ -469,10 +486,14 @@
                 <div class="about-text hidden">
                     <h3>Engineering Student & Tech Enthusiast</h3>
                     <p style="margin-top: 15px;">
-                        I am a 3rd-year Engineering student based in Mumbai. My journey started with <strong>Web Development</strong>, but my curiosity has expanded into <strong>Artificial Intelligence</strong> and <strong>Cybersecurity</strong>. 
+                        I am a 3rd-year Engineering student based in Mumbai. My journey started with <strong>Web
+                            Development</strong>, but my curiosity has expanded into <strong>Artificial
+                            Intelligence</strong> and <strong>Cybersecurity</strong>.
                     </p>
                     <p style="margin-top: 15px;">
-                        I enjoy solving complex problem's in DSA and building intuitive websites, training machine learning models or building secured systems. I am constantly learning, currently exploring data science and ethical marketing strategies.
+                        I enjoy solving complex problem's in DSA and building intuitive websites, training machine
+                        learning models or building secured systems. I am constantly learning, currently exploring data
+                        science and ethical marketing strategies.
                     </p>
                     <div class="skill-tags">
                         <span class="tag">HTML/CSS/JS</span>
@@ -485,18 +506,20 @@
                         <span class="tag">Database Management Systems</span>
                     </div>
                 </div>
-                
+
                 <div style="flex: 1; min-width: 300px;" class="hidden">
                     <div class="services-grid" style="grid-template-columns: 1fr;">
                         <div class="service-card">
                             <i class="fas fa-code service-icon"></i>
                             <h4>Full Stack Development</h4>
-                            <p class="text-muted">Building responsive websites using the MERN stack and modern UI frameworks.</p>
+                            <p class="text-muted">Building responsive websites using the MERN stack and modern UI
+                                frameworks.</p>
                         </div>
                         <div class="service-card">
                             <i class="fas fa-shield-alt service-icon"></i>
                             <h4>Security & AI</h4>
-                            <p class="text-muted">Developing intelligent security solutions and exploring malware analysis.</p>
+                            <p class="text-muted">Developing intelligent security solutions and exploring malware
+                                analysis.</p>
                         </div>
                     </div>
                 </div>
@@ -508,35 +531,41 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="portfolio-grid">
-                
+
                 <div class="portfolio-item hidden">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Code" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Code" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Automated Threat Prioritization Engine</h3>
                         <p>An automated system for prioritizing security threats using AI logic.</p>
-                        <a href="https://github.com/Rohans1113/AI-Powered-Security-Triage-System.git" class="btn" style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">View GitHub</a>
+                        <a href="https://github.com/Rohans1113/AI-Powered-Security-Triage-System.git" class="btn"
+                            style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">View GitHub</a>
                     </div>
                 </div>
 
                 <div class="portfolio-item hidden">
-                    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Travel" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Wanderlust</h3>
                         <p>A full-stack travel blog platform built with the MERN stack.</p>
-                        <a href="https://wanderlust-beta.vercel.app/" class="btn" style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">Live Demo</a>
+                        <a href="https://wanderlust-beta.vercel.app/" class="btn"
+                            style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">Live Demo</a>
                     </div>
                 </div>
 
                 <div class="portfolio-item hidden">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fitness" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Fitness" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Fitness Tracker App</h3>
                         <p>iOS application built with Swift UI to track workout progress.</p>
-                        <a href="https://github.com/Rohans1113/Fitness_Tracker_App" class="btn" style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">View Code</a>
+                        <a href="https://github.com/Rohans1113/Fitness_Tracker_App" class="btn"
+                            style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">View Code</a>
                     </div>
                 </div>
 
-                 <!-- <div class="portfolio-item hidden">
+                <!-- <div class="portfolio-item hidden">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Security" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Visual Malware Hunter</h3>
@@ -577,15 +606,25 @@
                     </div>
                 </div>
 
-                <form class="contact-form hidden">
+                <form action="https://formsubmit.co/rohansachin@icloud.com" method="POST" class="contact-form hidden">
+
+                    <input type="hidden" name="_next" value="https://your-website.com/#contact">
+
+                    <input type="hidden" name="_subject" value="New Portfolio Contact!">
+
+                    <input type="text" name="_honey" style="display:none">
+
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email" required>
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Your Message"
+                            required></textarea>
                     </div>
                     <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                 </form>
@@ -618,7 +657,7 @@
 
             function loop() {
                 heading.innerHTML = word.substring(0, j);
-                
+
                 if (!isDeleting && j < word.length) {
                     j++;
                     setTimeout(loop, 100);
@@ -663,4 +702,5 @@
         window.addEventListener('load', typeWriter);
     </script>
 </body>
+
 </html>
